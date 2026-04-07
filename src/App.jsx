@@ -11,9 +11,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/DashBoard" element={<DashBoard />} />
-          <Route path="/UserDetails" element={<UserDetails />} />
-          <Route path="/AddEditUser" element={<AddEditUser />} />
+          <Route path="/users" element={<DashBoard />} />
+          <Route path="/users/:id" element={<UserDetails />} />
+          <Route path="/add" element={<AddEditUser />} />
+          <Route path="/edit/:id" element={<AddEditUser />} />
         </Routes>
       </BrowserRouter>
     </>

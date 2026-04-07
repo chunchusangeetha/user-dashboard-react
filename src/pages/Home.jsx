@@ -15,7 +15,7 @@ export default function Home() {
       </p>
 
       <button
-        onClick={() => navigate("/DashBoard")}
+        onClick={() => navigate("/users")}
         className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors"
       >
         Go to Users List
