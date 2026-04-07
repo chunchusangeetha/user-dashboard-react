@@ -1,12 +1,23 @@
-import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import UserDetails from "./pages/UserDetails";
+import AddEditUser from "./pages/AddEditUser";
+import DashBoard from "./pages/DashBoard";
 
 function App() {
-
   return (
-   <>
-   <h1>Welcome to User Dashboard Application</h1>
-   </>
-  )
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/DashBoard" element={<DashBoard />} />
+          <Route path="/UserDetails" element={<UserDetails />} />
+          <Route path="/AddEditUser" element={<AddEditUser />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
-export default App
+export default App;
