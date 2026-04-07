@@ -22,7 +22,8 @@ export default function UserDetails() {
   const handleDelete = async () => {
     try {
       await deleteUser(id);
-      navigate("/users");
+      navigate("/users", { state: { refresh: true } });
+      setUser(prev => prev.filter(user => user.id !== id));
     } catch (err) {
       alert("Delete failed");
     }

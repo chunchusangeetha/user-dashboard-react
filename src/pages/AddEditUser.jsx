@@ -67,11 +67,10 @@ export default function AddEditUser() {
           setError("This email is already registered.");
           return;
         }
-
         await addUser(formData);
       }
 
-      navigate("/users");
+      navigate("/users", { state: { refresh: true } });
     } catch (err) {
       setError("Something went wrong");
     }

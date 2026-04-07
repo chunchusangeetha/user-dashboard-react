@@ -2,7 +2,7 @@ export const userFormControls = [
     {
         name:'name',
         label:'Name',
-        placeholder:'Please Enter Your Namme',
+        placeholder:'Please Enter Your Name',
         componentType:'input',
         type:'text'
     },
