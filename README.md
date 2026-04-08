@@ -72,3 +72,37 @@ Create a `.env` file in the root folder:
 
 VITE_API_URL=https://69d4fcafd396bd74235e2533.mockapi.io/api
 
+## Deployment
+
+The application is deployed using **Vercel**.
+
+### Live Demo
+
+https://user-dashboard-react-plum.vercel.app/
+
+You can access the live application using the above link to explore the features such as:
+
+- Viewing the user list
+- Searching and filtering users
+- Viewing user details
+- Adding new users
+- Editing existing users
+- Deleting users
+
+### Steps Used for Deployment
+
+1. Pushed the project to GitHub
+2. Imported the repository into Vercel
+3. Added environment variables
+4. Deployed the project
+
+
+---
+
+## Author
+
+Developed by **Chunchu Sangeetha**
+geethachunchu2841@gmail.com
+Frontend Developer
+
+
