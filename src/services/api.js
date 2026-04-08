@@ -7,7 +7,7 @@ export const getUsers = async () => {
         const response = await axios.get(`${BASE_URL}/users`);
         return response.data;
     } catch (error) {
-        throw error; 
+        throw new Error(error.response?.data?.message || "API Error"); 
     }
 }
 
@@ -16,7 +16,7 @@ export const getUsers = async () => {
         const response = await axios.get(`${BASE_URL}/users/${id}`);
         return response.data;
     } catch (error) {
-        throw error; 
+        throw new Error(error.response?.data?.message || "API Error"); 
     }
  }
 
@@ -26,7 +26,7 @@ export const getUsers = async () => {
         const response = await axios.delete(`${BASE_URL}/users/${id}`)
         return response.data;
     }catch(error){
-        throw error;
+       throw new Error(error.response?.data?.message || "API Error");
     }
  }
 
@@ -36,7 +36,7 @@ export const getUsers = async () => {
         return response.data
 
     }catch(error){
-        throw error
+        throw new Error(error.response?.data?.message || "API Error");
     }
  }
 
@@ -46,6 +46,6 @@ export const getUsers = async () => {
         return response.data
 
     }catch(error){
-        throw error
+        throw new Error(error.response?.data?.message || "API Error");
     }
  }

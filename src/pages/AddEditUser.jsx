@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { addUser, getUser, updateUser,getUsers } from "../services/api";
+import { addUser, getUser, updateUser, getUsers } from "../services/api";
 import Loader from "../components/common/Loader";
 import Input from "../components/common/Input";
 import { initialUserData, userFormControls } from "../utils/FormConstants";
@@ -35,6 +35,15 @@ export default function AddEditUser() {
   };
 
   const validate = () => {
+    if (
+      !formData.name &&
+      !formData.email &&
+      !formData.phone &&
+      !formData.company &&
+      !formData.city
+    ) {
+      return "Please fill the below details";
+    }
     if (!formData.name) return "Name is required";
     if (!formData.email.includes("@")) return "Invalid email";
     if (!formData.phone || formData.phone.toString().length !== 10) {
@@ -79,29 +88,39 @@ export default function AddEditUser() {
   if (loading) return <Loader />;
 
   return (
-    <div className="p-6 max-w-md mx-auto">
-      <h2 className="text-xl font-bold mb-4">
-        {isEdit ? "Edit User" : "Add User"}
-      </h2>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 to-pink-300 p-4">
+      <div className="bg-white shadow-lg rounded-xl p-6 sm:p-8 w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+          {isEdit ? "Edit User" : "Add User"}
+        </h2>
 
-      {error && <p className="text-red-500 mb-2">{error}</p>}
+        {error && (
+          <p className="text-red-500 text-sm mb-3 text-center">{error}</p>
+        )}
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        {userFormControls.map((currentItem) => (
-          <div key={currentItem.name} className="flex flex-col gap-1">
-            <label className="text-sm font-semibold">{currentItem.label}</label>
-            <Input
-              currentItem={currentItem}
-              value={formData[currentItem.name]}
-              onChange={handleChange}
-            />
-          </div>
-        ))}
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          {userFormControls.map((currentItem) => (
+            <div key={currentItem.name} className="flex flex-col gap-1">
+              <label className="text-sm font-semibold text-gray-600">
+                {currentItem.label}
+              </label>
 
-        <button type="submit" className="bg-green-500 text-white py-2 rounded">
-          {isEdit ? "Update User" : "Add User"}
-        </button>
-      </form>
+              <Input
+                currentItem={currentItem}
+                value={formData[currentItem.name]}
+                onChange={handleChange}
+              />
+            </div>
+          ))}
+
+          <button
+            type="submit"
+            className="bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg transition mt-2"
+          >
+            {isEdit ? "Update User" : "Add User"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

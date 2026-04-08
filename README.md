@@ -24,6 +24,7 @@ Sort users alphabetically (A–Z / Z–A)
 # Functional Highlights
 
 Reusable component architecture
+custom React hooks
 Form validation for user input
 Loading and error handling
 Responsive UI design
@@ -47,17 +48,27 @@ This project uses a mock REST API for full CRUD operations.
 https://69d4fcafd396bd74235e2533.mockapi.io/api
 
 ##  Getting Started
+#### 1. Clone the Repository
 
-### 1. Install dependencies
+git clone https://github.com/chunchusangeetha/user-dashboard-react.git
+
+### 2. Install dependencies
 
 npm install
 
-
-### 2. Run development server
+### 3. Run development server
 
 npm run dev
 
-### 3. Open in browser
+### 4. Open in browser
 
 http://localhost:5173
+
+
+## Environment Variables
+
+Create a `.env` file in the root folder:
+
+
+VITE_API_URL=https://69d4fcafd396bd74235e2533.mockapi.io/api
 
